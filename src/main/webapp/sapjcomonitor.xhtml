@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:rich="http://richfaces.org/rich"
+                template="/templates/template.xhtml">
+
+    <ui:define name="title">SAP JCo Monitor</ui:define>
+
+    <ui:define name="body">
+
+        <rich:panel header="Choose Destination" style="width:400px">
+            <h:form prependId="false">
+                <h:panelGrid columns="3" title="JCo Destination">
+
+                    <h:outputLabel value="JCo Destination Name: " for="DestinationNameInput"/>
+                    <h:inputText id="DestinationNameInput" value="#{monitoringData.destinationName}"/>
+                    <h:commandButton id="SearchButton"
+                                     action="#{monitoringData.chooseDestination}"
+                                     value="Choose Destination"/>
+                </h:panelGrid>
+                <br/><br/>
+                <rich:messages globalOnly="true"/>
+            </h:form>
+        </rich:panel>
+
+        <br/>
+
+        <rich:panel header="Destination Properties" style="width:400px">
+            <h:panelGrid columns="2" title="Destination Properties">
+                <h:outputLabel value="JCo Destination Name: " for="DestinationName"/>
+                <h:inputText id="DestinationName" value="#{monitoringData.destination.destinationName}"/>
+
+                <h:outputLabel value="Peak Limit: " for="DestinationPeakLimit"/>
+                <h:inputText id="DestinationPeakLimit" value="#{monitoringData.destination.peakLimit}"/>
+
+                <h:outputLabel value="Pool Capacity: " for="DestinationPoolCapacity"/>
+                <h:inputText id="DestinationPoolCapacity" value="#{monitoringData.destination.poolCapacity}"/>
+
+                <h:outputLabel value="Expiration Check Period (ms): " for="ExpirationCheckPeriod"/>
+                <h:inputText id="ExpirationCheckPeriod"
+                             value="#{monitoringData.destination.expirationCheckPeriod}"/>
+
+                <h:outputLabel value="Expiration Time (ms): " for="ExpirationTime"/>
+                <h:inputText id="ExpirationTime" value="#{monitoringData.destination.expirationTime}"/>
+
+                <h:outputLabel value="MaxGet Client Time (ms): " for="MaxGetClientTime"/>
+                <h:inputText id="MaxGetClientTime" value="#{monitoringData.destination.maxGetClientTime}"/>
+            </h:panelGrid>
+        </rich:panel>
+
+        <br/>
+
+        <rich:panel header="Monitor Information" style="width:400px">
+            <h:panelGrid columns="2" title="Monitor Information">
+                <h:outputLabel value="Peak Limit: " for="PeakLimit"/>
+                <h:inputText id="PeakLimit" value="#{monitoringData.destination.monitor.peakLimit}"/>
+
+                <h:outputLabel value="Pool Capacity: " for="PoolCapacity"/>
+                <h:inputText id="PoolCapacity" value="#{monitoringData.destination.monitor.poolCapacity}"/>
+
+                <h:outputLabel value="Max Used Count: " for="MaxUsedCount"/>
+                <h:inputText id="MaxUsedCount" value="#{monitoringData.destination.monitor.maxUsedCount}"/>
+
+                <h:outputLabel value="Pooled Connection Count: " for="PooledConnectionCount"/>
+                <h:inputText id="PooledConnectionCount"
+                             value="#{monitoringData.destination.monitor.pooledConnectionCount}"/>
+
+                <h:outputLabel value="Used Connection Count: " for="UsedConnectionCount"/>
+                <h:inputText id="UsedConnectionCount"
+                             value="#{monitoringData.destination.monitor.usedConnectionCount}"/>
+
+                <h:outputLabel value="Last Activity Timestamp: " for="LastActivityTimestamp"/>
+                <h:inputText id="LastActivityTimestamp"
+                             value="#{monitoringData.destination.monitor.lastActivityTimestamp}">
+                    <f:convertDateTime type="both" dateType="long"/>
+                </h:inputText>
+            </h:panelGrid>
+        </rich:panel>
+
+    </ui:define>
+</ui:composition>
