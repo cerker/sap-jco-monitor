@@ -6,14 +6,10 @@ import com.sap.conn.jco.JCoDestinationManager;
 import com.sap.conn.jco.JCoException;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import java.io.Serializable;
-import java.lang.reflect.Method;
 import java.util.List;
-import java.util.Map;
 
-@ManagedBean
 public class MonitoringData implements Serializable
 {
     private static final long serialVersionUID = -2403138958014741653L;
@@ -36,7 +32,7 @@ public class MonitoringData implements Serializable
         return destination;
     }
 
-    public void chooseDestination()
+    public String chooseDestination()
     {
         try
         {
@@ -50,5 +46,6 @@ public class MonitoringData implements Serializable
                     .addMessage( null, new FacesMessage(
                             "Destination " + destinationName + " not found. Try any of these: " + destinationIDs ) );
         }
+        return null;
     }
 }

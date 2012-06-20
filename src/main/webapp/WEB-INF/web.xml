@@ -1,22 +1,14 @@
-<!DOCTYPE web-app PUBLIC
-        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
-        "http://java.sun.com/dtd/web-app_2_3.dtd" >
-
-<web-app>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+                       http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
     <display-name>SAP JCo Monitor</display-name>
 
     <context-param>
-        <param-name>javax.faces.PROJECT_STAGE</param-name>
-        <param-value>Production</param-value>
+        <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+        <param-value>.xhtml</param-value>
     </context-param>
-    <context-param>
-        <param-name>javax.faces.SKIP_COMMENTS</param-name>
-        <param-value>true</param-value>
-    </context-param>
-    <context-param>
-        <param-name>org.richfaces.skin</param-name>
-        <param-value>ruby</param-value>
-    </context-param>
+
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -26,19 +18,13 @@
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.jsf</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>/faces/*</url-pattern>
-    </servlet-mapping>
+
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
-    <mime-mapping>
-        <extension>ecss</extension>
-        <mime-type>text/css</mime-type>
-    </mime-mapping>
+
     <welcome-file-list>
-        <welcome-file>faces/sapjcomonitor.xhtml</welcome-file>
+        <welcome-file>sapjcomonitor.xhtml</welcome-file>
     </welcome-file-list>
     <login-config>
         <auth-method>BASIC</auth-method>

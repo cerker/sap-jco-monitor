@@ -26,20 +26,34 @@
 
     <dependencies>
         <!-- Rich Faces -->
-        <dependency>
-            <groupId>org.richfaces.ui</groupId>
-            <artifactId>richfaces-components-ui</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.richfaces.core</groupId>
-            <artifactId>richfaces-core-impl</artifactId>
-        </dependency>
+        <!--
+                <dependency>
+                    <groupId>org.richfaces.ui</groupId>
+                    <artifactId>richfaces-components-ui</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.richfaces.core</groupId>
+                    <artifactId>richfaces-core-impl</artifactId>
+                </dependency>
+        -->
 
         <!-- Java EE APIs -->
         <dependency>
-            <groupId>com.sun.faces</groupId>
+            <groupId>javax.faces</groupId>
             <artifactId>jsf-api</artifactId>
+            <version>1.2-b19</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.faces</groupId>
+            <artifactId>jsf-impl</artifactId>
+            <version>1.2-b19</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.facelets</groupId>
+            <artifactId>jsf-facelets</artifactId>
+            <version>1.1.15</version>
         </dependency>
 
         <!-- SAP JCo -->
@@ -55,17 +69,19 @@
             <dependency>
                 <groupId>com.sap</groupId>
                 <artifactId>sap-jco</artifactId>
-                <version>3.0.8</version>
+                <version>3.0.7</version>
             </dependency>
 
             <!-- Rich Faces -->
-            <dependency>
-                <groupId>org.richfaces</groupId>
-                <artifactId>richfaces-bom</artifactId>
-                <version>4.1.0.Final</version>
-                <scope>import</scope>
-                <type>pom</type>
-            </dependency>
+            <!--
+                        <dependency>
+                            <groupId>org.richfaces</groupId>
+                            <artifactId>richfaces-bom</artifactId>
+                            <version>3.3.3.Final</version>
+                            <scope>import</scope>
+                            <type>pom</type>
+                        </dependency>
+            -->
         </dependencies>
     </dependencyManagement>
 </project>
